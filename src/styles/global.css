@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Pacifico&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Be Vietnam Pro', sans-serif;
+
+  /* Font Sizes */
+  --heading-1-size: 5rem;
+  --heading-2-size: 4rem;
+  --heading-3-size: 3rem;
+  --heading-4-size: 2.5rem;
+  --heading-5-size: 2rem;
+  --heading-6-size: 1.5rem;
+  --paragraph-size: 1.125rem;
+
+  /* Font Weights */
+  --heading-1-weight: 600;
+  --heading-3-weight: 600;
+  --heading-2-weight: 600;
+  --heading-4-weight: 500;
+  --heading-5-weight: 500;
+  --heading-6-weight: 500;
+  --paragraph-weight: 400;
+
+  /* Line Heights */
+  --heading-1-line-height: 101.2;
+  --heading-2-line-height: 81;
+  --heading-3-line-height: 60.7;
+  --heading-4-line-height: 50.6;
+  --heading-5-line-height: 40.5;
+  --heading-6-line-height: 30.4;
+  --paragraph-line-height: 27;
+
+  /* Background Colours */
+  --bg-900: hsl(220, 60%, 10%);
+  --bg-700: hsl(219, 61%, 20%);
+  --bg-800: hsl(219, 61%, 32%);
+  --bg-600: hsl(219, 61%, 40%);
+  --bg-500: hsl(219, 61%, 48%);
+  --bg-400: hsl(219, 61%, 60%);
+  --bg-300: hsl(219, 61%, 72%);
+  --bg-200: hsl(219, 61%, 84%);
+  --bg-100: hsl(219, 61%, 96%);
+
+  /* Primary Colours */
+  --primary: hsl(220, 85%, 50%) ;
+
+  /* Text Colours */
+  --text-900: hsl(222, 47%, 11%);
+  --text-800: hsl(217, 33%, 17%);
+  --text-700: hsl(215, 25%, 27%);
+  --text-600: hsl(215, 19%, 35%);
+  --text-500: hsl(215, 16%, 47%);
+  --text-400: hsl(215, 20%, 65%);
+  --text-300: hsl(213, 27%, 84%);
+  --text-200: hsl(214, 32%, 91%);
+  --text-100: hsl(210, 40%, 96%);
+
+  /* Shadows */
+  --shadow-1: 0px 1px 2px hsla(0, 0%, 0%, 0.24), 0px 1px 3px hsla(0, 0%, 0%, 0.12);
+  --shadow-2: 0px 3px 6px hsla(0, 0%, 0%, 0.15), 0px 2px 4px hsla(0, 0%, 0%, 0.12);
+  --shadow-3: 0px 10px 20px hsla(0, 0%, 0%, 0.15), 0px 3px 6px hsla(0, 0%, 0%, 0.10);
+  --shadow-4: 0px 15px 25px hsla(0, 0%, 0%, 0.15), 0px 5px 10px hsla(0, 0%, 0%, 0.05);
+  --shadow-5: 0px 20px 40px hsla(0, 0%, 0%, 0.20);
+
+  /* Light Theme colours */
+  --text-shade-1: var(--text-900);
+  --text-shade-2: var(--text-800);
+  --text-shade-3: var(--text-700);
+  --text-shade-4: var(--text-600);
+
+  --background-colour: var(--bg-100);
+  --border-shade: var(--text-400)
+  --icon-colour: var(--text-200);
+
+  --form-label-colour: var(--text-700);
+  --form-input-background: var(--text-300);
+  --form-input-colour: var(--text-500);
+}
+
+:root.dark {
+  /* Dark Theme colours */
+  --text-shade-1: var(--text-100);
+  --text-shade-2: var(--text-200);
+  --text-shade-3: var(--text-300);
+  --text-shade-4: var(--text-400);
+
+  --background-colour: var(--bg-900);
+  --border-shade: var(--text-600)
+  --icon-colour: var(--text-800);
+
+  --form-label-colour: var(--text-200);
+  --form-input-background: var(--text-800);
+  --form-input-colour: var(--text-400);
+}
+
+body {
+  margin-inline: 160px;
+  max-width: 1600px;
+  background-color: var(--background-colour);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin-inline: 64px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    margin-inline: 32px;
+  }
+}
