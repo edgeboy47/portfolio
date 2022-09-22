@@ -4,6 +4,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* This is to animate the colours when changing themes  */
+  transition: color 0.25s, background-color 0.25s ease-out;
+}
+
+a {
+  text-decoration: none;
 }
 
 :root {
@@ -28,13 +34,13 @@
   --paragraph-weight: 400;
 
   /* Line Heights */
-  --heading-1-line-height: 101.2;
-  --heading-2-line-height: 81;
-  --heading-3-line-height: 60.7;
-  --heading-4-line-height: 50.6;
-  --heading-5-line-height: 40.5;
-  --heading-6-line-height: 30.4;
-  --paragraph-line-height: 27;
+  --heading-1-line-height: 101.2px;
+  --heading-2-line-height: 81px;
+  --heading-3-line-height: 60.7px;
+  --heading-4-line-height: 50.6px;
+  --heading-5-line-height: 40.5px;
+  --heading-6-line-height: 30.4px;
+  --paragraph-line-height: 27px;
 
   /* Background Colours */
   --bg-900: hsl(220, 60%, 10%);
@@ -48,7 +54,9 @@
   --bg-100: hsl(219, 61%, 96%);
 
   /* Primary Colours */
-  --primary: hsl(220, 85%, 50%) ;
+  --primary-700: hsl(220, 85%, 36%);
+  --primary-500: hsl(220, 85%, 50%);
+  --primary-400: hsl(220, 74%, 54%);
 
   /* Text Colours */
   --text-900: hsl(222, 47%, 11%);
@@ -75,8 +83,9 @@
   --text-shade-4: var(--text-600);
 
   --background-colour: var(--bg-100);
-  --border-shade: var(--text-400)
-  --icon-colour: var(--text-200);
+  --border-shade: var(--text-400);
+  --icon-colour: var(--text-800);
+  --theme-icon-colour: var(--text-700);
 
   --form-label-colour: var(--text-700);
   --form-input-background: var(--text-300);
@@ -91,8 +100,9 @@
   --text-shade-4: var(--text-400);
 
   --background-colour: var(--bg-900);
-  --border-shade: var(--text-600)
-  --icon-colour: var(--text-800);
+  --border-shade: var(--text-600);
+  --icon-colour: var(--text-200);
+  --theme-icon-colour: var(--text-400);
 
   --form-label-colour: var(--text-200);
   --form-input-background: var(--text-800);
@@ -100,12 +110,18 @@
 }
 
 body {
-  margin-inline: 160px;
-  max-width: 1600px;
+  /* margin-inline: 160px; */
+  margin: 0 auto;
+  width: min(90%, 1600px);
   background-color: var(--background-colour);
 }
 
-@media screen and (max-width: 768px) {
+svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* @media screen and (max-width: 768px) {
   body {
     margin-inline: 64px;
   }
@@ -115,4 +131,4 @@ body {
   body {
     margin-inline: 32px;
   }
-}
+} */

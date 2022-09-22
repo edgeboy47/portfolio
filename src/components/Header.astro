@@ -1,0 +1,56 @@
+---
+import Navbar from "./Navbar.astro";
+import { Icon } from "astro-icon";
+---
+
+<header>
+  <span>D.Mills</span>
+  <div class="mobile-menu">
+    <Icon name="charm:menu-hamburger" />
+  </div>
+  <Navbar />
+</header>
+
+<script>
+  const button = document.querySelector(".mobile-menu");
+
+  button!.addEventListener("click", () => {
+    const nav = document.querySelector("nav");
+
+    nav?.classList.toggle("open");
+  });
+</script>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: clamp(0.5rem, 9.4vw - 3.9rem, 4rem);
+    padding-block: 0.5rem;
+    border-bottom: 1px solid var(--border-shade);
+    position: relative;
+  }
+
+  .mobile-menu svg {
+    color: var(--icon-colour);
+    display: none;
+  }
+
+  span {
+    font-family: "Pacifico", cursive;
+    color: var(--text-shade-1);
+    font-size: clamp(
+      var(--heading-6-size),
+      4vw - 0.4rem,
+      var(--heading-3-size)
+    );
+    line-height: 84px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .mobile-menu svg {
+      display: block;
+    }
+  }
+</style>

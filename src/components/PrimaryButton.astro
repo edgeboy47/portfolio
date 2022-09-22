@@ -1,0 +1,46 @@
+---
+export interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+---
+
+<button>
+  {text}
+  <slot />
+</button>
+
+<style>
+  button {
+    display: flex;
+    gap: 1rem;
+    background-color: var(--primary-500);
+    color: var(--text-100);
+    padding: 16px 32px;
+    font-size: var(--heading-6-size);
+    font-weight: var(--heading-6-weight);
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    font-family: inherit;
+    box-shadow: var(--shadow-3);
+    transition: 0.2s ease-in all;
+  }
+
+  button svg {
+    color: var(--text-100);
+    width: 32px;
+    height: 32px;
+  }
+
+  button:hover {
+    box-shadow: var(--shadow-4);
+    background-color: var(--primary-400);
+    cursor: pointer;
+  }
+
+  button:active {
+    background-color: var(--primary-700);
+    box-shadow: var(--shadow-2);
+  }
+</style>

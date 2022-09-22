@@ -1,0 +1,110 @@
+---
+import PrimaryButton from "./PrimaryButton.astro";
+import { Icon } from "astro-icon";
+---
+
+<nav>
+  <ul>
+    <!-- TODO: add links to other parts of website -->
+    <li class="text">About</li>
+    <li class="text">Projects</li>
+    <li class="text">Contact</li>
+    <a href="/Darrion_Mills_FE_Resume.pdf">
+      <PrimaryButton text="Resume" />
+    </a>
+    <li class="theme-changer">
+      <Icon name="ri:moon-fill" id="dark-button" />
+      <Icon name="jam:brightness-up-f" id="light-button" class="hidden" />
+    </li>
+  </ul>
+</nav>
+
+<script>
+  // TODO: store theme preference, and use prefers-color-scheme query
+  const button = document.querySelector(".theme-changer");
+  const lightIcon = document.querySelector("#light-button");
+  const darkIcon = document.querySelector("#dark-button");
+
+  button!.addEventListener("click", () => {
+    const root = document.querySelector("html");
+    root!.classList.toggle("dark");
+    darkIcon!.classList.toggle("hidden");
+    lightIcon!.classList.toggle("hidden");
+  });
+</script>
+
+<style>
+  ul {
+    display: flex;
+    gap: clamp(1rem, 1.75vw + 0.5rem, 3rem);
+    align-items: center;
+  }
+
+  li {
+    list-style: none;
+    font-size: var(--heading-6-size);
+    font-weight: var(--heading-6-weight);
+    line-height: var(--heading-6-line-height);
+    padding: 1rem;
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+
+  li > svg {
+    color: var(--theme-icon-colour);
+  }
+
+  li.text {
+    display: inline-block;
+    position: relative;
+    color: var(--text-shade-1);
+  }
+
+  li.text::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--text-400);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  li.text:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  @media screen and (max-width: 1000px) {
+    nav {
+      display: none;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      background-color: var(--background-colour);
+    }
+
+    nav.open {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    ul > * {
+      width: 100%;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
