@@ -1,8 +1,76 @@
 ---
 import PrimaryButton from "./PrimaryButton.astro";
-import {Icon} from 'astro-icon';
+import { Icon } from "astro-icon";
 ---
 
-<article>
-    Hero
+<article class="hero">
+  <div class="hero-text">
+    <p class="greeting">Hello there 👋🏾</p>
+    <p class="name">My name is Darrion Mills</p>
+    <p class="description">
+        <!-- TODO: add flag image -->
+      I&rsquo;m a software developer based in Trinidad and Tobago <span class="flag"><img src="/tt.png" alt="Trinidad and Tobago Flag"></span> <br /> I currently
+      specialize in frontend development, but I also have experience with mobile
+      and backend development.
+    </p>
+  </div>
+  <a href="">
+    <!-- TODO: add link to about section -->
+      <PrimaryButton text="See More">
+        <Icon name="ic:baseline-keyboard-arrow-down" />
+        </PrimaryButton>
+  </a>
 </article>
+
+<style>
+  .hero {
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .hero-text {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+  }
+
+  .greeting {
+    color: var(--text-shade-3);
+    font-size: var(--heading-5-size);
+    font-weight: var(--heading-5-weight);
+  }
+
+  .name {
+    color: var(--text-shade-1);
+    font-size: var(--heading-2-size);
+    font-weight: var(--heading-2-weight);
+  }
+
+  .description {
+    color: var(--text-shade-4);
+    font-size: var(--paragraph-size);
+    font-weight: var(--paragraph-weight);
+    max-width: 45ch;
+    line-height: var(--paragraph-line-height);
+  }
+
+  .flag img{
+    width: 24px;
+    height: auto;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .greeting {
+        font-size: var(--heading-6-size);
+        font-weight: var(--heading-6-weight);
+    }
+
+    .name {
+        font-size: var(--heading-3-size);
+        font-weight: var(--heading-3-weight);
+    }
+  }
+</style>

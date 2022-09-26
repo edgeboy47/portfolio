@@ -4,7 +4,8 @@ import { Icon } from "astro-icon";
 ---
 
 <header>
-  <span>D.Mills</span>
+  <a href="/"><span class="logo">D.Mills</span></a>
+  <!-- TODO: add overlay bg for when mobile menu is open -->
   <div class="mobile-menu">
     <Icon name="charm:menu-hamburger" />
   </div>
@@ -26,10 +27,20 @@ import { Icon } from "astro-icon";
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: clamp(0.5rem, 9.4vw - 3.9rem, 4rem);
-    padding-block: 0.5rem;
-    border-bottom: 1px solid var(--border-shade);
+    padding-inline: 2rem;
+    /* border-bottom: 1px solid var(--border-shade); */
     position: relative;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    height: 1px;
+    width: calc(100% - 2rem);
+    background-color: var(--border-shade);
+
   }
 
   .mobile-menu svg {
@@ -37,7 +48,7 @@ import { Icon } from "astro-icon";
     display: none;
   }
 
-  span {
+  .logo {
     font-family: "Pacifico", cursive;
     color: var(--text-shade-1);
     font-size: clamp(

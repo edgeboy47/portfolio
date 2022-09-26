@@ -9,9 +9,11 @@ import { Icon } from "astro-icon";
     <li class="text">About</li>
     <li class="text">Projects</li>
     <li class="text">Contact</li>
-    <a href="/Darrion_Mills_FE_Resume.pdf">
-      <PrimaryButton text="Resume" />
-    </a>
+    <li>
+      <a href="/Darrion_Mills_FE_Resume.pdf">
+        <PrimaryButton text="Resume" />
+      </a>
+    </li>
     <li class="theme-changer">
       <Icon name="ri:moon-fill" id="dark-button" />
       <Icon name="jam:brightness-up-f" id="light-button" class="hidden" />
@@ -70,7 +72,7 @@ import { Icon } from "astro-icon";
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--text-400);
+    background-color: var(--border-shade);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -84,10 +86,11 @@ import { Icon } from "astro-icon";
     nav {
       display: none;
       position: absolute;
-      top: 100px;
+      top: 85px; /* Equal to height of header*/
       left: 0;
       width: 100%;
       background-color: var(--background-colour);
+      box-shadow: var(--shadow-3);
     }
 
     nav.open {
@@ -101,6 +104,10 @@ import { Icon } from "astro-icon";
 
     ul > * {
       width: 100%;
+    }
+    
+    li {
+      padding-left: 2rem;
     }
   }
 
