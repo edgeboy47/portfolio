@@ -1,5 +1,5 @@
 <article class="about">
-  <div class="heading"><span>About Me</span></div>
+  <div class="section-header"><span>About Me</span></div>
   <div class="text">
     <p class="title">
       Hi there. My name is Darrion, and I&rsquo;m a frontend developer.
@@ -26,34 +26,10 @@
 </article>
 
 <style>
-  .heading {
-    color: var(--text-shade-1);
-    font-size: var(--heading-2-size);
-    font-weight: var(--heading-2-weight);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .heading > span {
-    margin-inline: 1.5rem;
-  }
-
-  .heading::before,
-  .heading::after {
-    content: "";
-    height: 1px;
-    flex: 1;
-    background-color: var(--border-shade);
-  }
-
   .text {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
     gap: 1.5rem;
-    margin-top: 9rem;
     margin-inline: auto;
     width: fit-content;
   }
@@ -72,11 +48,6 @@
   }
 
   @media screen and (max-width: 1000px) {
-    .heading {
-      font-size: var(--heading-4-size);
-      font-weight: var(--heading-4-weight);
-    }
-
     .text {
       margin-top: 4.5rem;
     }

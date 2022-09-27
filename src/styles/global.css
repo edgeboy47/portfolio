@@ -120,14 +120,32 @@ svg {
   height: 32px;
 }
 
-/* @media screen and (max-width: 768px) {
-  body {
-    margin-inline: 64px;
-  }
+/* Utility classes */
+.section-header {
+  color: var(--text-shade-1);
+  font-size: var(--heading-2-size);
+  font-weight: var(--heading-2-weight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 9rem;
 }
 
-@media screen and (max-width: 480px) {
-  body {
-    margin-inline: 32px;
+.section-header > span {
+  margin-inline: 1.5rem;
+}
+
+.section-header::before,
+.section-header::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background-color: var(--border-shade);
+}
+
+@media screen and (max-width: 1000px) {
+  .section-header {
+    font-size: var(--heading-4-size);
+    font-weight: var(--heading-4-weight);
   }
-} */
+}

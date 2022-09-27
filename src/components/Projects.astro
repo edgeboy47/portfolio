@@ -1,3 +1,20 @@
-<article>
-    Projects
+---
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<article class="projects">
+  <div class="section-header">
+    <span>Projects</span>
+  </div>
+  <div class="cards">
+    <ProjectCard
+      title="Anitracker"
+      description="Web app used to keep track of what anime you have watched"
+      imagePath="/anitracker.png"
+      imageAltText="Anitracker screenshot"
+      builtWith={["React", "React-Router", "TypeScript", "Styled-Components", "Redux Toolkit"]}
+      githubURL="https://github.com/edgeboy47/anitracker"
+      liveURL="https://edgeboy47.github.io/anitracker/"
+    />
+  </div>
 </article>
