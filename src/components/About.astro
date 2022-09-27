@@ -1,3 +1,84 @@
-<article>
-    About Me
+<article class="about">
+  <div class="heading"><span>About Me</span></div>
+  <div class="text">
+    <p class="title">
+      Hi there. My name is Darrion, and I&rsquo;m a frontend developer.
+    </p>
+    <div class="description">
+      <p>
+        Ever since I was little, I&rsquo;ve always been interested in technology
+        and knowing how things work.
+      </p><br />
+      <p>
+        I first started off taking toys and RC cars apart when I was young to
+        see what was inside them. Then I went on to modding smartphones, from
+        rooting them to installing custom ROMs. I also spent a lot of time
+        playing video games, so naturally I became interested in learning how to
+        make them.
+      </p><br />
+      <p>
+        Nowadays I&rsquo;m into web development, both frontend and backend. The
+        main technologies I currently use are ReactJS, TypeScript, NodeJS and
+        Git, but I have also used various others.
+      </p>
+    </div>
+  </div>
 </article>
+
+<style>
+  .heading {
+    color: var(--text-shade-1);
+    font-size: var(--heading-2-size);
+    font-weight: var(--heading-2-weight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .heading > span {
+    margin-inline: 1.5rem;
+  }
+
+  .heading::before,
+  .heading::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background-color: var(--border-shade);
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    gap: 1.5rem;
+    margin-top: 9rem;
+    margin-inline: auto;
+    width: fit-content;
+  }
+
+  .title {
+    font-size: var(--heading-6-size);
+    font-weight: var(--heading-6-weight);
+    color: var(--text-shade-1);
+    max-width: 55ch;
+  }
+
+  .description {
+    color: var(--text-shade-3);
+    font-size: var(--paragraph-size);
+    max-width: 55ch;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .heading {
+      font-size: var(--heading-4-size);
+      font-weight: var(--heading-4-weight);
+    }
+
+    .text {
+      margin-top: 4.5rem;
+    }
+  }
+</style>
