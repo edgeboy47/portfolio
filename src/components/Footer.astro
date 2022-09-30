@@ -1,3 +1,60 @@
+---
+import Icon from "astro-icon";
+---
+
 <footer>
-    Footer
+  <span class="text">&copy; Designed and Developed by Darrion Mills</span>
+  <div class="icons">
+    <a href="mailto:dmillsdev@gmail.com">
+      <Icon name="mdi:email" />
+    </a>
+    <a href="https://www.linkedin.com/in/darrion-mills-931669171/">
+      <Icon name="mdi:linkedin" />
+    </a>
+    <a href="https://github.com/edgeboy47">
+      <Icon name="mdi:github" />
+    </a>
+  </div>
 </footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 4rem 1rem;
+    margin-top: 8rem;
+    position: relative;
+  }
+
+  footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    height: 1px;
+    width: calc(100% - 4rem);
+    background-color: var(--border-shade);
+  }
+
+  span.text {
+    color: var(--text-shade-4);
+    font-size: var(--paragraph-size);
+  }
+
+  .icons {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .icons svg {
+    color: var(--icon-colour);
+  }
+
+  @media screen and (max-width: 1000px){
+    footer {
+        padding-inline: 2rem;
+        flex-direction: column;
+        gap: 2rem;
+    }
+  }
+</style>

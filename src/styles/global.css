@@ -89,7 +89,8 @@ a {
 
   --form-label-colour: var(--text-700);
   --form-input-background: var(--text-300);
-  --form-input-colour: var(--text-500);
+  --form-input-colour: var(--text-700);
+  --placeholder-colour: var(--text-500);
 }
 
 :root.dark {
@@ -106,7 +107,8 @@ a {
 
   --form-label-colour: var(--text-200);
   --form-input-background: var(--text-800);
-  --form-input-colour: var(--text-400);
+  --form-input-colour: var(--text-200);
+  --placeholder-colour: var(--text-400);
 }
 
 body {

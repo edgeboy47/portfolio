@@ -1,3 +1,108 @@
-<article>
-    Contact Me
+---
+import PrimaryButton from "./PrimaryButton.astro";
+---
+<!-- TODO setup email form -->
+<article class="contact">
+  <div class="section-header"><span>Contact Me</span></div>
+  <div class="contact-form">
+    <div class="text">
+      I&rsquo;m currently open to opportunities, so feel free to get in touch if
+      you would like to work together.
+    </div>
+    <div class="form">
+      <form action="">
+        <div class="input-container">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" placeholder="John Doe" />
+        </div>
+        <div class="input-container">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="john.doe@example.com"
+          />
+        </div>
+        <div class="input-container">
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Enter details"></textarea>
+        </div>
+        <div id="form-button">
+          <PrimaryButton type={"submit"} text="Reach Out" />
+        </div>
+      </form>
+    </div>
+  </div>
 </article>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    gap: 2rem;
+  }
+
+  .text {
+    color: var(--text-shade-2);
+    font-size: var(--heading-6-size);
+    font-weight: var(--heading-6-weight);
+    max-width: 55ch;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  label {
+    color: var(--form-label-colour);
+    font-size: var(--heading-6-size);
+    font-weight: var(--heading-6-weight);
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  textarea {
+    color: var(--form-input-colour);
+    background-color: var(--form-input-background);
+    font-size: var(--paragraph-size);
+    outline: none;
+    border: none;
+    padding-inline: 0.5rem;
+    padding-block: 1rem;
+    border-radius: 4px;
+    font: inherit;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--placeholder-colour);
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: 2px solid var(--primary-500);
+  }
+
+  #form-button {
+    margin-top: 8rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .text,
+    label {
+      font-size: var(--paragraph-size);
+      font-weight: var(--paragraph-weight);
+    }
+  }
+</style>

@@ -1,11 +1,12 @@
 ---
 export interface Props {
   text: string;
+  type?: 'button' | 'submit'
 }
-const { text } = Astro.props;
+const { text, type } = Astro.props;
 ---
 
-<button>
+<button type={type ?? 'button'}>
   {text}
   <slot />
 </button>
