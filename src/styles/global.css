@@ -123,6 +123,9 @@ svg {
 }
 
 /* Utility classes */
+.hidden {
+  display: none;
+}
 .section-header {
   color: var(--text-shade-1);
   font-size: var(--heading-2-size);

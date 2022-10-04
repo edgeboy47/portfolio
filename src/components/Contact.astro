@@ -1,6 +1,8 @@
 ---
+import LoadingSpinner from "./LoadingSpinner.astro";
 import PrimaryButton from "./PrimaryButton.astro";
 ---
+
 <!-- TODO setup email form -->
 <article class="contact">
   <div class="section-header"><span>Contact Me</span></div>
@@ -10,10 +12,21 @@ import PrimaryButton from "./PrimaryButton.astro";
       you would like to work together.
     </div>
     <div class="form">
-      <form action="">
+      <form name="contact" data-netlify="true" netlify-honeypot="bot-field">
+        <p class="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
         <div class="input-container">
           <label for="name">Name</label>
-          <input type="text" name="name" id="name" placeholder="John Doe" />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="John Doe"
+            required
+          />
         </div>
         <div class="input-container">
           <label for="email">Email</label>
@@ -22,6 +35,7 @@ import PrimaryButton from "./PrimaryButton.astro";
             name="email"
             id="email"
             placeholder="john.doe@example.com"
+            required
           />
         </div>
         <div class="input-container">
@@ -31,10 +45,17 @@ import PrimaryButton from "./PrimaryButton.astro";
             id="message"
             cols="30"
             rows="10"
-            placeholder="Enter details"></textarea>
+            placeholder="Enter details"
+            required></textarea>
         </div>
         <div id="form-button">
           <PrimaryButton type={"submit"} text="Reach Out" />
+          <div id="spinner" class="hidden">
+            <LoadingSpinner />
+          </div>
+          <span id="form-success" class="hidden"
+            >Message sent! I will respond as soon as I can.</span
+          >
         </div>
       </form>
     </div>
@@ -64,7 +85,8 @@ import PrimaryButton from "./PrimaryButton.astro";
     margin-bottom: 3rem;
   }
 
-  label {
+  label,
+  #form-success {
     color: var(--form-label-colour);
     font-size: var(--heading-6-size);
     font-weight: var(--heading-6-weight);
@@ -106,3 +128,26 @@ import PrimaryButton from "./PrimaryButton.astro";
     }
   }
 </style>
+
+<script>
+  const handleSubmit = (e: SubmitEvent) => {
+    e.preventDefault();
+    const form = document.querySelector('form') as HTMLFormElement;
+    const formbutton = document.querySelector(
+      "#form-button>button"
+    ) as HTMLButtonElement;
+    const spinner = document.querySelector("#spinner") as HTMLDivElement;
+    const span = document.querySelector("#form-success") as HTMLSpanElement;
+
+    form.reset();
+    formbutton.classList.toggle("hidden");
+    spinner.classList.toggle("hidden");
+
+    setTimeout(() => {
+      spinner.classList.toggle("hidden");
+      span.classList.toggle("hidden");
+    }, 2000);
+  };
+
+  document.querySelector("form")!.addEventListener("submit", handleSubmit);
+</script>
