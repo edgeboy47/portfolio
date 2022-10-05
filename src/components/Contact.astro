@@ -135,8 +135,17 @@ import PrimaryButton from "./PrimaryButton.astro";
 </style>
 
 <script>
-  const handleSubmit = (e: SubmitEvent) => {
+  const handleSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
+
+    const response = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(e.currentTarget as HTMLFormElement) as any).toString(),
+    });
+
+    console.log(response)
+
     const form = document.querySelector("form") as HTMLFormElement;
     const formbutton = document.querySelector(
       "#form-button>button"
