@@ -1,37 +1,51 @@
 ---
 import PrimaryButton from "./PrimaryButton.astro";
+import ThemeChanger from "./ThemeChanger.astro";
 import { Icon } from "astro-icon";
 ---
 
 <nav>
   <ul>
     <!-- TODO: add links to other parts of website -->
-    <li class="text">About</li>
-    <li class="text">Projects</li>
-    <li class="text">Contact</li>
+    <li id="about-button" class="text">About Me</li>
+    <li id="projects-button" class="text">Projects</li>
+    <li id="contact-button" class="text">Contact</li>
     <li>
       <a href="/Darrion_Mills_FE_Resume.pdf">
         <PrimaryButton text="Resume" />
       </a>
     </li>
     <li class="theme-changer">
-      <Icon name="ri:moon-fill" id="dark-button" />
-      <Icon name="jam:brightness-up-f" id="light-button" class="hidden" />
+      <ThemeChanger />
     </li>
   </ul>
 </nav>
 
 <script>
-  // TODO: store theme preference, and use prefers-color-scheme query
-  const button = document.querySelector(".theme-changer");
-  const lightIcon = document.querySelector("#light-button");
-  const darkIcon = document.querySelector("#dark-button");
+  const aboutButton = document.querySelector("#about-button");
+  const projectsButton = document.querySelector("#projects-button");
+  const contactButton = document.querySelector("#contact-button");
+  const closeMobileMenu = () => {
+    const nav = document.querySelector("nav");
+    nav!.classList.toggle("open");
+  };
 
-  button!.addEventListener("click", () => {
-    const root = document.querySelector("html");
-    root!.classList.toggle("dark");
-    darkIcon!.classList.toggle("hidden");
-    lightIcon!.classList.toggle("hidden");
+  aboutButton!.addEventListener("click", () => {
+    const about = document.querySelector("#about-me")!;
+    about.scrollIntoView({ behavior: "smooth" });
+    closeMobileMenu();
+  });
+
+  projectsButton!.addEventListener("click", () => {
+    const projects = document.querySelector("#projects")!;
+    projects.scrollIntoView({ behavior: "smooth" });
+    closeMobileMenu();
+  });
+
+  contactButton!.addEventListener("click", () => {
+    const contact = document.querySelector("#contact-me")!;
+    contact.scrollIntoView({ behavior: "smooth" });
+    closeMobileMenu();
   });
 </script>
 
@@ -52,10 +66,6 @@ import { Icon } from "astro-icon";
 
   li:hover {
     cursor: pointer;
-  }
-
-  li > svg {
-    color: var(--theme-icon-colour);
   }
 
   li.text {
@@ -82,7 +92,7 @@ import { Icon } from "astro-icon";
     transform-origin: bottom left;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1040px) {
     nav {
       display: none;
       position: absolute;
@@ -105,7 +115,7 @@ import { Icon } from "astro-icon";
     ul > * {
       width: 100%;
     }
-    
+
     li {
       padding-left: 2rem;
     }

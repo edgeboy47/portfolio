@@ -3,8 +3,7 @@ import LoadingSpinner from "./LoadingSpinner.astro";
 import PrimaryButton from "./PrimaryButton.astro";
 ---
 
-<!-- TODO setup email form -->
-<article class="contact">
+<article id="contact-me" class="contact">
   <div class="section-header"><span>Contact Me</span></div>
   <div class="contact-form">
     <div class="text">
@@ -125,7 +124,7 @@ import PrimaryButton from "./PrimaryButton.astro";
     margin-top: 8rem;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1040px) {
     .text,
     label {
       font-size: var(--paragraph-size);
@@ -141,26 +140,31 @@ import PrimaryButton from "./PrimaryButton.astro";
     const response = await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(e.currentTarget as HTMLFormElement) as any).toString(),
+      body: new URLSearchParams(
+        new FormData(e.currentTarget as HTMLFormElement) as any
+      ).toString(),
     });
 
-    console.log(response)
+    if (response.status === 200) {
+      const form = document.querySelector("form") as HTMLFormElement;
+      const formbutton = document.querySelector(
+        "#form-button>button"
+      ) as HTMLButtonElement;
+      const spinner = document.querySelector("#spinner") as HTMLDivElement;
+      const span = document.querySelector("#form-success") as HTMLSpanElement;
 
-    const form = document.querySelector("form") as HTMLFormElement;
-    const formbutton = document.querySelector(
-      "#form-button>button"
-    ) as HTMLButtonElement;
-    const spinner = document.querySelector("#spinner") as HTMLDivElement;
-    const span = document.querySelector("#form-success") as HTMLSpanElement;
-
-    form.reset();
-    formbutton.classList.toggle("hidden");
-    spinner.classList.toggle("hidden");
-
-    setTimeout(() => {
+      form.reset();
+      formbutton.classList.toggle("hidden");
       spinner.classList.toggle("hidden");
-      span.classList.toggle("hidden");
-    }, 2000);
+
+      setTimeout(() => {
+        spinner.classList.toggle("hidden");
+        span.classList.toggle("hidden");
+      }, 2000);
+    }
+    else {
+      // TODO: error handling
+    }
   };
 
   document.querySelector("form")!.addEventListener("submit", handleSubmit);

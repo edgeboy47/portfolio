@@ -1,0 +1,26 @@
+---
+import Icon from "astro-icon";
+---
+
+<Icon name="ri:moon-fill" id="dark-button" />
+<Icon name="jam:brightness-up-f" id="light-button" class="hidden" />
+
+<script>
+  // TODO: store theme preference, and use prefers-color-scheme query
+  const button = document.querySelector(".theme-changer");
+  const lightIcon = document.querySelector("#light-button");
+  const darkIcon = document.querySelector("#dark-button");
+
+  button!.addEventListener("click", () => {
+    const root = document.querySelector("html");
+    root!.classList.toggle("dark");
+    darkIcon!.classList.toggle("hidden");
+    lightIcon!.classList.toggle("hidden");
+  });
+</script>
+
+<style>
+  svg {
+    color: var(--theme-icon-colour);
+  }
+</style>

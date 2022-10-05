@@ -2,7 +2,7 @@
 import Navbar from "./Navbar.astro";
 import { Icon } from "astro-icon";
 ---
-
+<!-- TODO: make header sticky -->
 <header>
   <a href="/"><span class="logo">D.Mills</span></a>
   <!-- TODO: add overlay bg for when mobile menu is open -->
@@ -58,7 +58,7 @@ import { Icon } from "astro-icon";
     line-height: 84px;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1040px) {
     .mobile-menu svg {
       display: block;
     }

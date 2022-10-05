@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Pacifico&display=swap");
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,7 +15,7 @@ a {
 }
 
 :root {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
 
   /* Font Sizes */
   --heading-1-size: 5rem;
@@ -70,11 +72,15 @@ a {
   --text-100: hsl(210, 40%, 96%);
 
   /* Shadows */
-  --shadow-1: 0px 1px 2px hsla(0, 0%, 0%, 0.24), 0px 1px 3px hsla(0, 0%, 0%, 0.12);
-  --shadow-2: 0px 3px 6px hsla(0, 0%, 0%, 0.15), 0px 2px 4px hsla(0, 0%, 0%, 0.12);
-  --shadow-3: 0px 10px 20px hsla(0, 0%, 0%, 0.15), 0px 3px 6px hsla(0, 0%, 0%, 0.10);
-  --shadow-4: 0px 15px 25px hsla(0, 0%, 0%, 0.15), 0px 5px 10px hsla(0, 0%, 0%, 0.05);
-  --shadow-5: 0px 20px 40px hsla(0, 0%, 0%, 0.20);
+  --shadow-1: 0px 1px 2px hsla(0, 0%, 0%, 0.24),
+    0px 1px 3px hsla(0, 0%, 0%, 0.12);
+  --shadow-2: 0px 3px 6px hsla(0, 0%, 0%, 0.15),
+    0px 2px 4px hsla(0, 0%, 0%, 0.12);
+  --shadow-3: 0px 10px 20px hsla(0, 0%, 0%, 0.15),
+    0px 3px 6px hsla(0, 0%, 0%, 0.1);
+  --shadow-4: 0px 15px 25px hsla(0, 0%, 0%, 0.15),
+    0px 5px 10px hsla(0, 0%, 0%, 0.05);
+  --shadow-5: 0px 20px 40px hsla(0, 0%, 0%, 0.2);
 
   /* Light Theme colours */
   --text-shade-1: var(--text-900);
@@ -148,7 +154,7 @@ svg {
   background-color: var(--border-shade);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1040px) {
   .section-header {
     font-size: var(--heading-4-size);
     font-weight: var(--heading-4-weight);
