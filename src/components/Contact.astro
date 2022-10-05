@@ -12,10 +12,15 @@ import PrimaryButton from "./PrimaryButton.astro";
       you would like to work together.
     </div>
     <div class="form">
-      <form name="contact" data-netlify="true" netlify-honeypot="bot-field">
+      <form
+        method="POST"
+        name="contact"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
         <p class="hidden">
           <label>
-            Don’t fill this out if you’re human: <input name="bot-field" />
+            Do not fill this out if you are human: <input name="bot-field" />
           </label>
         </p>
         <div class="input-container">
@@ -132,7 +137,7 @@ import PrimaryButton from "./PrimaryButton.astro";
 <script>
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
-    const form = document.querySelector('form') as HTMLFormElement;
+    const form = document.querySelector("form") as HTMLFormElement;
     const formbutton = document.querySelector(
       "#form-button>button"
     ) as HTMLButtonElement;
