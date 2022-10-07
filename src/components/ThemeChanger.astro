@@ -6,16 +6,44 @@ import Icon from "astro-icon";
 <Icon name="jam:brightness-up-f" id="light-button" class="hidden" />
 
 <script>
-  // TODO: store theme preference, and use prefers-color-scheme query
   const button = document.querySelector(".theme-changer");
   const lightIcon = document.querySelector("#light-button");
   const darkIcon = document.querySelector("#dark-button");
-
-  button!.addEventListener("click", () => {
-    const root = document.querySelector("html");
-    root!.classList.toggle("dark");
+  const toggleIcon = () => {
     darkIcon!.classList.toggle("hidden");
     lightIcon!.classList.toggle("hidden");
+  };
+
+  const setTheme = (theme: "light" | "dark") => {
+    const root = document.querySelector("html");
+    localStorage.setItem("theme", theme);
+
+    if(theme === 'light'){
+      if(root!.classList.contains('dark')){
+        root!.classList.remove('dark')
+      }
+    }else{
+      
+      root!.classList.add("dark");
+    }
+  };
+
+  // Get preference from localStorage and set initial theme
+  const currentTheme = localStorage.getItem('theme');
+  if(currentTheme === 'dark'){
+    setTheme('dark')
+    toggleIcon();
+  }
+
+  button!.addEventListener("click", () => {
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "light") {
+      setTheme("dark");
+    } else if (currentTheme === "dark") {
+      setTheme("light");
+    }
+
+    toggleIcon();
   });
 </script>
 

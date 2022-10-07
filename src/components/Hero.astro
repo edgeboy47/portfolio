@@ -13,12 +13,11 @@ import { Icon } from "astro-icon";
       and backend development.
     </p>
   </div>
-  <a href="">
-    <!-- TODO: add link to about section -->
+  <div id="see-more">
       <PrimaryButton text="See More">
         <Icon name="ic:baseline-keyboard-arrow-down" />
         </PrimaryButton>
-  </a>
+  </div>
 </article>
 
 <style>
@@ -73,3 +72,12 @@ import { Icon } from "astro-icon";
     }
   }
 </style>
+
+<script>
+  const btn = document.querySelector('#see-more');
+
+  btn!.addEventListener("click", () => {
+    const about = document.querySelector("#about-me")!;
+    about.scrollIntoView({ behavior: "smooth" });
+  });
+</script>
