@@ -9,44 +9,30 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Darrion Mills | Software Developer" />
     <title>Darrion Mills | Software Developer</title>
+    <script is:inline>
+      (function () {
+        // Check if user has set theme preference previously
+        const userThemePreference = localStorage.getItem("theme");
+
+        // If it was not set previously
+        if (userThemePreference === null) {
+          // Check media query preference
+          const mqpref = matchMedia("(prefers-color-scheme: dark)");
+          // If it is set to dark
+          if (mqpref.matches) {
+            // Set theme preference to dark, and show light icon
+            localStorage.setItem("theme", "dark");
+          } else {
+            // Set them preference to light
+            localStorage.setItem("theme", "light");
+          }
+        } else if (userThemePreference === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
-    <script is:inline>
-      const setTheme = (theme) => {
-        const root = document.documentElement;
-        const lightIcon = document.querySelector("#light-button");
-        const darkIcon = document.querySelector("#dark-button");
-        localStorage.setItem("theme", theme);
-
-        if (theme === "light") {
-          root.classList.remove("dark");
-          darkIcon.classList.add("hidden");
-          lightIcon.classList.remove("hidden");
-        } else if (theme === "dark") {
-          root.classList.add("dark");
-          darkIcon.classList.remove("hidden");
-          lightIcon.classList.add("hidden");
-        }
-      };
-
-      // Check if user has set theme preference previously
-      const userThemePreference = localStorage.getItem("theme");
-
-      // If it was not set previously
-      if (userThemePreference === null) {
-        // Check media query preference
-        const mqpref = matchMedia("(prefers-color-scheme: dark)");
-
-        // If it is set to dark
-        if (mqpref.matches) {
-          // Set theme preference to dark, and show light icon
-          setTheme("dark");
-        } else {
-          // Set them preference to light
-          setTheme("light");
-        }
-      } else if (userThemePreference === "dark") setTheme("dark");
-    </script>
     <slot />
   </body>
 </html>
