@@ -1,14 +1,31 @@
 ---
 import "../styles/global.css";
+import { SEO } from "astro-seo";
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <SEO
+      title="Darrion Mills - Software Developer"
+      description="Darrion Mills is a software developer and who specializes in creating web experiences."
+      openGraph={{
+        basic: {
+          title: "Darrion Mills",
+          type: "website",
+          image: "/og.png",
+          url: "https://dmills.dev",
+        },
+        optional: {
+          description: "Darrion Mills is a software developer and who specializes in creating web experiences."
+        },
+        image: {
+          alt: "Description of Darrion Mills "
+        }
+      }}
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Darrion Mills | Software Developer" />
-    <title>Darrion Mills | Software Developer</title>
     <script is:inline>
       (function () {
         // Check if user has set theme preference previously
