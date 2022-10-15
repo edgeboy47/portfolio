@@ -1,5 +1,6 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
+import anitracker from "../assets/anitracker.png"
 ---
 
 <article id="projects" class="projects">
@@ -10,7 +11,7 @@ import ProjectCard from "./ProjectCard.astro";
     <ProjectCard
       title="Anitracker"
       description="Web app used to keep track of what anime you have watched"
-      imagePath="/anitracker.png"
+      imagePath={anitracker}
       imageAltText="Anitracker screenshot"
       builtWith={["React", "React-Router", "TypeScript", "Styled-Components", "Redux Toolkit"]}
       githubURL="https://github.com/edgeboy47/anitracker"

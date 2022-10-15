@@ -1,5 +1,6 @@
 ---
 import Icon from "astro-icon";
+import { Picture } from "@astrojs/image/components";
 
 export interface Props {
   imagePath: string;
@@ -21,23 +22,33 @@ const {
   liveURL,
 } = Astro.props;
 ---
+
 <!-- TODO: add hover for image, and onclick to go to live site -->
 <article class="project-card">
-  <div class="preview"><img src={imagePath} alt={imageAltText} /></div>
+  <div class="preview">
+    <Picture
+      src={imagePath}
+      alt={imageAltText}
+      widths={[640]}
+      sizes="(max-width: 1040px) 100%, 640px"
+      aspectRatio="16:9"
+      fit="contain"
+    />
+  </div>
   <div class="info">
     <div class="text">
-        <div class="title">{title}</div>
-        <div class="built-with">
-          <span>Built With:</span>
-          {
-            builtWith.reduce(
-              (prev, curr, index, arr) =>
-                index < arr.length - 1 ? prev + curr + ", " : prev.concat(curr),
-              ""
-            )
-          }
-        </div>
-        <div class="description">{description}</div>
+      <div class="title">{title}</div>
+      <div class="built-with">
+        <span>Built With:</span>
+        {
+          builtWith.reduce(
+            (prev, curr, index, arr) =>
+              index < arr.length - 1 ? prev + curr + ", " : prev.concat(curr),
+            ""
+          )
+        }
+      </div>
+      <div class="description">{description}</div>
     </div>
     <div class="links">
       <a href={githubURL}>
@@ -54,6 +65,17 @@ const {
   </div>
 </article>
 
+<!-- Global style needed for picture img to style properly -->
+<style is:global>
+  .preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: 1px solid var(--border-shade);
+    border-radius: 10px;
+  }
+</style>
+
 <style>
   .project-card {
     display: flex;
@@ -62,17 +84,17 @@ const {
   }
 
   .preview {
-    width: 640px; 
+    width: 640px;
     height: 360px;
-  }
+  } 
 
-  .preview img {
+  /* .preview img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     border: 1px solid var(--border-shade);
     border-radius: 10px;
-  }
+  } */
 
   .info {
     display: flex;
@@ -125,28 +147,27 @@ const {
     }
 
     .preview {
-        width: 100%;
+      width: 100%;
     }
 
     .title {
-        font-size: var(--heading-5-size);
+      font-size: var(--heading-5-size);
     }
 
     .built-with {
-        max-width: 100%;
+      max-width: 100%;
     }
 
     .description {
-        font-size: var(--paragraph-size);
-        max-width: 100%;
+      font-size: var(--paragraph-size);
+      max-width: 100%;
     }
 
     .info {
-        gap: 2rem;
+      gap: 2rem;
     }
 
     .links {
-
     }
   }
 </style>
