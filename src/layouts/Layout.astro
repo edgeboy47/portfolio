@@ -5,6 +5,28 @@ import { SEO } from "astro-seo";
 
 <html lang="en">
   <head>
+    <script is:inline>
+      (function () {
+        // Check if user has set theme preference previously
+        const userThemePreference = localStorage.getItem("theme");
+
+        // If it was not set previously
+        if (userThemePreference === null) {
+          // Check media query preference
+          const mqpref = matchMedia("(prefers-color-scheme: dark)");
+          // If it is set to dark
+          if (mqpref.matches) {
+            // Set theme preference to dark, and show light icon
+            localStorage.setItem("theme", "dark");
+          } else {
+            // Set them preference to light
+            localStorage.setItem("theme", "light");
+          }
+        } else if (userThemePreference === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script is:inline
       async
@@ -42,28 +64,6 @@ import { SEO } from "astro-seo";
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <script is:inline>
-      (function () {
-        // Check if user has set theme preference previously
-        const userThemePreference = localStorage.getItem("theme");
-
-        // If it was not set previously
-        if (userThemePreference === null) {
-          // Check media query preference
-          const mqpref = matchMedia("(prefers-color-scheme: dark)");
-          // If it is set to dark
-          if (mqpref.matches) {
-            // Set theme preference to dark, and show light icon
-            localStorage.setItem("theme", "dark");
-          } else {
-            // Set them preference to light
-            localStorage.setItem("theme", "light");
-          }
-        } else if (userThemePreference === "dark") {
-          document.documentElement.classList.add("dark");
-        }
-      })();
-    </script>
   </head>
   <body>
     <slot />
