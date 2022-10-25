@@ -24,7 +24,7 @@ import tt from "../assets/tt.png"
 
 <style>
   .hero {
-    min-height: calc(90vh - 5rem);
+    min-height: calc(100vh - 94px);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -63,6 +63,11 @@ import tt from "../assets/tt.png"
   }
 
   @media screen and (max-width: 1040px) {
+
+    .hero {
+    min-height: calc(100vh - 84px);
+
+    }
     .greeting {
         font-size: var(--heading-6-size);
         font-weight: var(--heading-6-weight);
