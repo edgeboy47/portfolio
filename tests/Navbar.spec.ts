@@ -26,7 +26,7 @@ test.describe("Navbar", () => {
     expect(await aboutHeader.evaluate(isVisible)).toBe(false);
 
     await aboutButton.click();
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(1000);
 
     expect(await aboutHeader.evaluate(isVisible)).toBe(true);
   });
