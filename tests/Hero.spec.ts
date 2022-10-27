@@ -20,7 +20,7 @@ test.describe("Hero Section", () => {
     await page.goto("/");
   });
 
-  test("See More Button", async ({ page }) => {
+  test("See More Button should scroll to About Me section when pressed", async ({ page }) => {
     const aboutHeader = page.locator("#about-me >  .section-header");
     const seeMoreButton = page.locator("#see-more");
 

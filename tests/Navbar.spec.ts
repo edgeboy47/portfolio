@@ -19,7 +19,9 @@ test.describe("Navbar", () => {
     await page.goto("/");
   });
 
-  test("About Me button", async ({ page }) => {
+  test("About Me button should scroll the page to the About Me section when pressed", async ({
+    page,
+  }) => {
     const aboutHeader = page.locator("#about-me >  .section-header");
     const aboutButton = page.locator("#about-button");
 
@@ -31,7 +33,9 @@ test.describe("Navbar", () => {
     expect(await aboutHeader.evaluate(isVisible)).toBe(true);
   });
 
-  test("Projects button", async ({ page }) => {
+  test("Projects button should scroll the page to the Projects section when pressed", async ({
+    page,
+  }) => {
     const projectsHeader = page.locator("#projects >  .section-header");
     const projectsButton = page.locator("#projects-button");
 
@@ -43,7 +47,9 @@ test.describe("Navbar", () => {
     expect(await projectsHeader.evaluate(isVisible)).toBe(true);
   });
 
-  test("Contact Me button", async ({ page }) => {
+  test("Contact Me button should scroll the page to the Contact Me section when pressed", async ({
+    page,
+  }) => {
     const contactHeader = page.locator("#contact-me >  .section-header");
     const contactButton = page.locator("#contact-button");
 
@@ -55,5 +61,3 @@ test.describe("Navbar", () => {
     expect(await contactHeader.evaluate(isVisible)).toBe(true);
   });
 });
-
-test.describe.fixme("Hero Section", () => {});

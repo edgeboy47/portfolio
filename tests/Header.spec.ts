@@ -5,7 +5,7 @@ test.describe("Header", () => {
     await page.goto("/");
   });
 
-  test("Mobile Menu", async ({ page }) => {
+  test("Mobile Menu should work correctly when tapped", async ({ page }) => {
     // Mobile Menu should appear and disappear correctly when the nav button is pressed on mobile
     const navButton = page.locator(".mobile-menu");
     const menu = page.locator("nav");
