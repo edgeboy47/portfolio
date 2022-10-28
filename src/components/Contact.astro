@@ -60,6 +60,9 @@ import PrimaryButton from "./PrimaryButton.astro";
           <span id="form-success" class="hidden"
             >Message sent! I will respond as soon as I can.</span
           >
+          <span id="form-error" class="hidden"
+            >Message failed to send. Please refresh and try again.</span
+          >
         </div>
       </form>
     </div>
@@ -90,7 +93,8 @@ import PrimaryButton from "./PrimaryButton.astro";
   }
 
   label,
-  #form-success {
+  #form-success,
+  #form-error {
     color: var(--form-label-colour);
     font-size: var(--heading-6-size);
     font-weight: var(--heading-6-weight);
@@ -145,12 +149,13 @@ import PrimaryButton from "./PrimaryButton.astro";
       ).toString(),
     });
 
+    const form = document.querySelector("form") as HTMLFormElement;
+    const formbutton = document.querySelector(
+      "#form-button>button"
+    ) as HTMLButtonElement;
+    const spinner = document.querySelector("#spinner") as HTMLDivElement;
+
     if (response.status === 200) {
-      const form = document.querySelector("form") as HTMLFormElement;
-      const formbutton = document.querySelector(
-        "#form-button>button"
-      ) as HTMLButtonElement;
-      const spinner = document.querySelector("#spinner") as HTMLDivElement;
       const span = document.querySelector("#form-success") as HTMLSpanElement;
 
       form.reset();
@@ -161,9 +166,17 @@ import PrimaryButton from "./PrimaryButton.astro";
         spinner.classList.toggle("hidden");
         span.classList.toggle("hidden");
       }, 2000);
-    }
-    else {
-      // TODO: error handling
+    } else {
+      const span = document.querySelector("#form-error") as HTMLSpanElement;
+
+      form.reset();
+      formbutton.classList.toggle("hidden");
+      spinner.classList.toggle("hidden");
+
+      setTimeout(() => {
+        spinner.classList.toggle("hidden");
+        span.classList.toggle("hidden");
+      }, 2000);
     }
   };
 
