@@ -23,17 +23,18 @@ const {
 } = Astro.props;
 ---
 
-<!-- TODO: add hover for image, and onclick to go to live site -->
 <article class="project-card">
   <div class="preview">
-    <Picture
-      src={imagePath}
-      alt={imageAltText}
-      widths={[640]}
-      sizes="(max-width: 1040px) 100%, 640px"
-      aspectRatio="16:9"
-      fit="contain"
-    />
+    <a href={liveURL} target="_blank">
+      <Picture
+        src={imagePath}
+        alt={imageAltText}
+        widths={[640]}
+        sizes="(max-width: 1040px) 100%, 640px"
+        aspectRatio="16:9"
+        fit="contain"
+      />
+    </a>
   </div>
   <div class="info">
     <div class="text">
@@ -73,6 +74,12 @@ const {
     object-fit: contain;
     border: 1px solid var(--border-shade);
     border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+  }
+
+  .preview img:hover {
+    transform: scale(1.025);
   }
 </style>
 
